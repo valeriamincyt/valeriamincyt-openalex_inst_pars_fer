@@ -1,0 +1,67 @@
+2024-11-22 14:49:14,559 : 
+---------------------------
+----------[START]----------
+---------------------------
+2024-11-22 14:49:14,560 : [OK]   en_US Detected as a supported Language
+2024-11-22 14:49:14,560 : [OK]   convert magic commands
+2024-11-22 14:49:14,560 : [OK]   commenting out unsupported magic commands
+2024-11-22 14:49:14,561 : [OK]   keeping new imports made by converter
+2024-11-22 14:49:14,561 : [NOT]  showing outputs from converter
+2024-11-22 14:49:16,165 : [WARN] !pip command detected
+2024-11-22 14:49:16,165 : [WARN] converted:
+    !pip install boto3
+  to:
+    sub_p_res = subprocess.run(['pip', 'install', 'boto3'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    print(sub_p_res)
+
+2024-11-22 14:49:16,166 : [WARN] !pip command detected
+2024-11-22 14:49:16,166 : [WARN] converted:
+    !pip install fsspec
+  to:
+    sub_p_res = subprocess.run(['pip', 'install', 'fsspec'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    print(sub_p_res)
+
+2024-11-22 14:49:16,166 : [WARN] !pip command detected
+2024-11-22 14:49:16,166 : [WARN] converted:
+    !pip install pyspark
+  to:
+    sub_p_res = subprocess.run(['pip', 'install', 'pyspark'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    print(sub_p_res)
+
+2024-11-22 14:49:16,167 : [WARN] !pip command detected
+2024-11-22 14:49:16,167 : [WARN] converted:
+    !pip install pyalex
+  to:
+    sub_p_res = subprocess.run(['pip', 'install', 'pyalex'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    print(sub_p_res)
+
+2024-11-22 14:49:16,167 : [WARN] !pip command detected
+2024-11-22 14:49:16,167 : [WARN] converted:
+    !pip install pyalex
+  to:
+    sub_p_res = subprocess.run(['pip', 'install', 'pyalex'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    print(sub_p_res)
+
+2024-11-22 14:49:16,170 : [WARN] !pip command detected
+2024-11-22 14:49:16,170 : [WARN] converted:
+    !pip install colab-convert
+  to:
+    sub_p_res = subprocess.run(['pip', 'install', 'colab-convert'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    print(sub_p_res)
+
+2024-11-22 14:49:16,171 : [WARN] !colab-convert command detected
+2024-11-22 14:49:16,171 : [WARN] converted:
+    !colab-convert /content/drive/MyDrive/openalex-institution-parsing/V2/002_Model/Notebooks/001_get_training_data_SPARK.ipynb /content/drive/MyDrive/openalex-institution-parsing/V2/002_Model/Notebooks/001_get_training_data_SPARK.py  to:
+    sub_p_res = subprocess.run(['colab-convert', '/content/drive/MyDrive/openalex-institution-parsing/V2/002_Model/Notebooks/001_get_training_data_SPARK.ipynb', '/content/drive/MyDrive/openalex-institution-parsing/V2/002_Model/Notebooks/001_get_training_data_SPARK.p'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    print(sub_p_res)
+
+2024-11-22 14:49:16,171 : [WARN] adding new imports to the top of the file
+  # %%
+  # !! {"metadata":{
+  # !!   "id":"cc-imports"
+  # !! }}
+  
+  #<cc-imports>
+  
+  import subprocess
+  
