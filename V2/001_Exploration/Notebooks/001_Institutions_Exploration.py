@@ -29,7 +29,7 @@ import pickle
 import json
 sub_p_res = subprocess.run(['pip', 'install', 'redshift_connector'], stdout=subprocess.PIPE).stdout.decode('utf-8') #<cc-cm>
 print(sub_p_res) #<cc-cm>
-import redshift_connector
+#import redshift_connector
 import pandas as pd
 pd.set_option("display.max_colwidth", None)
 pd.set_option("display.max_columns", None)
@@ -65,8 +65,8 @@ from random import sample
 # !!   },
 # !!   "outputId": "d40806ba-06fb-4924-ba89-79c8cd883f5c"
 # !! }}
-from google.colab import drive
-drive.mount('/content/drive')
+#from google.colab import drive
+#drive.mount('/content/drive')
 
 # %%
 # !! {"metadata":{
@@ -91,7 +91,8 @@ drive.mount('/content/drive')
 # !!   }
 # !! }}
 import os
-base_path = '/content/drive/MyDrive/openalex-institution-parsing/'
+#base_path = '/content/drive/MyDrive/openalex-institution-parsing/'
+base_path = '../../../'
 
 # %%
 # !! {"metadata":{
