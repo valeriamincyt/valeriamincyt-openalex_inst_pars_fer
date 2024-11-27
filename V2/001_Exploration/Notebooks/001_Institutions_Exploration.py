@@ -5,7 +5,7 @@
 
 #<cc-imports>
 
-import subprocess
+#import subprocess
 
 # %%
 # !! {"metadata":{
@@ -27,23 +27,23 @@ import subprocess
 # !! }}
 import pickle
 import json
-sub_p_res = subprocess.run(['pip', 'install', 'redshift_connector'], stdout=subprocess.PIPE).stdout.decode('utf-8') #<cc-cm>
-print(sub_p_res) #<cc-cm>
+#sub_p_res = subprocess.run(['pip', 'install', 'redshift_connector'], stdout=subprocess.PIPE).stdout.decode('utf-8') #<cc-cm>
+#print(sub_p_res) #<cc-cm>
 #import redshift_connector
 import pandas as pd
 pd.set_option("display.max_colwidth", None)
 pd.set_option("display.max_columns", None)
 pd.set_option("display.max_rows", 200)
 import numpy as np
-sub_p_res = subprocess.run(['pip', 'install', 'unidecode'], stdout=subprocess.PIPE).stdout.decode('utf-8') #<cc-cm>
-print(sub_p_res) #<cc-cm>
+#sub_p_res = subprocess.run(['pip', 'install', 'unidecode'], stdout=subprocess.PIPE).stdout.decode('utf-8') #<cc-cm>
+#print(sub_p_res) #<cc-cm>
 import unidecode
 import re
 
 from collections import Counter
 from math import ceil
-sub_p_res = subprocess.run(['pip', 'install', 'langdetect'], stdout=subprocess.PIPE).stdout.decode('utf-8') #<cc-cm>
-print(sub_p_res) #<cc-cm>
+#sub_p_res = subprocess.run(['pip', 'install', 'langdetect'], stdout=subprocess.PIPE).stdout.decode('utf-8') #<cc-cm>
+#print(sub_p_res) #<cc-cm>
 from langdetect import detect
 from random import sample
 
@@ -193,9 +193,9 @@ ror[ror['ror_id']=='05kxf7578']
 
 ##Alternativa: bajando el archivo utilizando la API y colocando el link de la búsqueda
 
-import json,urllib.request
-data = urllib.request.urlopen("https://api.openalex.org/institutions?filter=country_code:AR&per-page=200&page=1").read()
-data1 = urllib.request.urlopen("https://api.openalex.org/institutions?filter=country_code:AR&per-page=200&page=2").read()
+import json,requests
+data = requests.get("https://api.openalex.org/institutions?filter=country_code:AR&per-page=200&page=1").text
+data1 = requests.get("https://api.openalex.org/institutions?filter=country_code:AR&per-page=200&page=2").text
 
 output = json.loads(data)
 output1 = json.loads(data1)
@@ -1307,10 +1307,10 @@ ror_to_join_final.merge(insts, how='inner',
 # !!   },
 # !!   "outputId": "f409f212-ef24-41da-a5be-7d2d71553e86"
 # !! }}
-sub_p_res = subprocess.run(['pip', 'install', 'colab-convert'], stdout=subprocess.PIPE).stdout.decode('utf-8') #<cc-cm>
-print(sub_p_res) #<cc-cm>
-sub_p_res = subprocess.run(['colab-convert', '001_Institutions_Exploration.ipynb', '001_Institutions_Exploration.p'], stdout=subprocess.PIPE).stdout.decode('utf-8') #<cc-cm>
-print(sub_p_res) #<cc-cm>
+#sub_p_res = subprocess.run(['pip', 'install', 'colab-convert'], stdout=subprocess.PIPE).stdout.decode('utf-8') #<cc-cm>
+#print(sub_p_res) #<cc-cm>
+#sub_p_res = subprocess.run(['colab-convert', '001_Institutions_Exploration.ipynb', '001_Institutions_Exploration.p'], stdout=subprocess.PIPE).stdout.decode('utf-8') #<cc-cm>
+#print(sub_p_res) #<cc-cm>
 
 
 # %%
