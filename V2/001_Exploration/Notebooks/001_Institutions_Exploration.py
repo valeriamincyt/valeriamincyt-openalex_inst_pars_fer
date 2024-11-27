@@ -187,29 +187,8 @@ ror[ror['ror_id']=='05kxf7578']
 # !! }}
 # this file is not provided but the needed data is all institutions in OpenAlex
 # with the following columns: 'ror_id','affiliation_id'
-#insts = pd.read_parquet("OA_static_institutions_single_file.parquet",
- #                       columns=['affiliation_id','ror_id'])
+insts = pd.read_parquet(f'{base_path}Crudos/OA_static_institutions_single_file.parquet')
 
-
-###Alternativa 2: utilizando librería pyAlex
-import pyalex
-from pyalex import Works, Authors, Sources, Institutions, Topics, Publishers, Funders
-from pyalex import config
-
-config.max_retries = 0
-config.retry_backoff_factor = 0.1
-config.retry_http_codes = [429, 500, 503]
-
-pager = Institutions().filter(country_code="AR").paginate(method="page",per_page=200)
-
-listaDeInstituciones = list()
-for page in pager:
-    print(len(page))
-    listaDeInstituciones += page
-
-print(len(listaDeInstituciones))
-
-insts=pd.DataFrame(listaDeInstituciones)
 insts.head(n=2)
 insts['affiliation_id'] = insts['id'].apply(lambda x: x.split("/")[-1])
 insts['affiliation_id']=insts['affiliation_id'].apply(lambda x: x.split("I")[-1])
