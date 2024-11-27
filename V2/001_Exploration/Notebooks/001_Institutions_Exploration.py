@@ -186,6 +186,20 @@ ror[ror['ror_id']=='05kxf7578']
 # !!   "outputId": "1df00372-5021-49ac-e71d-3b6b8d9a70fc"
 # !! }}
 # this file is not provided but the needed data is all institutions in OpenAlex
+# Correr lo siguiente en una notebook para actualizar el archivo
+# ##Alternativa1: bajando el archivo utilizando la API y colocando el link de la búsqueda
+# data = urllib.request.urlopen("https://api.openalex.org/institutions?filter=country_code:AR&per-page=200&page=1").read()
+# data1 = urllib.request.urlopen("https://api.openalex.org/institutions?filter=country_code:AR&per-page=200&page=2").read()
+#output = json.loads(data)
+#output1 = json.loads(data1)
+
+#argentina1=pd.DataFrame(output['results'])
+#argentina2=pd.DataFrame(output1['results'])
+#argentina=pd.concat([argentina1,argentina2])
+#print(argentina.head())
+#print(argentina.shape)
+#argentina.to_parquet("OA_static_institutions_single_file.parquet")
+
 # with the following columns: 'ror_id','affiliation_id'
 insts = pd.read_parquet(f'{base_path}Crudos/OA_static_institutions_single_file.parquet')
 
@@ -1317,3 +1331,4 @@ ror_to_join_final.merge(insts, how='inner',
 # !!     "provenance": []
 # !!   }
 # !! }}
+print('FINALIZÓ OK')
