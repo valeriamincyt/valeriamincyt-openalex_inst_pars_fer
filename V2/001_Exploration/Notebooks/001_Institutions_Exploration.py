@@ -191,29 +191,31 @@ ror[ror['ror_id']=='05kxf7578']
  #                       columns=['affiliation_id','ror_id'])
 
 
-##Alternativa: bajando el archivo utilizando la API y colocando el link de la búsqueda
+###Alternativa 2: utilizando librería pyAlex
+import pyalex
+from pyalex import Works, Authors, Sources, Institutions, Topics, Publishers, Funders
+from pyalex import config
 
-import json,requests
-data = requests.get("https://api.openalex.org/institutions?filter=country_code:AR&per-page=200&page=1").text
-data1 = requests.get("https://api.openalex.org/institutions?filter=country_code:AR&per-page=200&page=2").text
+config.max_retries = 0
+config.retry_backoff_factor = 0.1
+config.retry_http_codes = [429, 500, 503]
 
-output = json.loads(data)
-output1 = json.loads(data1)
+pager = Institutions().filter(country_code="AR").paginate(method="page",per_page=200)
 
-argentina1=pd.DataFrame(output['results'])
-argentina2=pd.DataFrame(output1['results'])
-argentina=pd.concat([argentina1,argentina2])
-argentina.head()
-argentina.shape
-insts=argentina
-####
-####
-insts['ror_id'] = insts['ror'].apply(lambda x: x.split("/")[-1])
+listaDeInstituciones = list()
+for page in pager:
+    print(len(page))
+    listaDeInstituciones += page
+
+print(len(listaDeInstituciones))
+
+insts=pd.DataFrame(listaDeInstituciones)
+insts.head(n=2)
 insts['affiliation_id'] = insts['id'].apply(lambda x: x.split("/")[-1])
 insts['affiliation_id']=insts['affiliation_id'].apply(lambda x: x.split("I")[-1])
-
-print(insts.columns)
+insts['ror_id'] = insts['ror'].apply(lambda x: x.split("/")[-1])
 insts=insts[['ror_id','affiliation_id']]
+print(insts.shape)
 
 # %%
 # !! {"metadata":{
@@ -234,7 +236,7 @@ insts=insts[['ror_id','affiliation_id']]
 # !!   },
 # !!   "outputId": "c5fe21df-5f05-4946-efc3-681569c8013b"
 # !! }}
-insts.sample()
+print(insts.sample())
 
 # %%
 # !! {"metadata":{
